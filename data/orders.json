@@ -1,0 +1,34 @@
+{
+  "ORD-1001": {
+    "customer": "Ayesha Khan",
+    "item": "Wireless Earbuds Pro",
+    "status": "Shipped",
+    "ordered_days_ago": 5,
+    "delivery_days": 9,
+    "amount": 59.99
+  },
+  "ORD-1002": {
+    "customer": "Bilal Ahmed",
+    "item": "Smart Fitness Watch",
+    "status": "Delivered",
+    "ordered_days_ago": 10,
+    "delivery_days": 5,
+    "amount": 129.00
+  },
+  "ORD-1003": {
+    "customer": "Sara Malik",
+    "item": "USB-C Fast Charger",
+    "status": "Processing",
+    "ordered_days_ago": 1,
+    "delivery_days": 7,
+    "amount": 19.99
+  },
+  "ORD-1004": {
+    "customer": "Hamza Raza",
+    "item": "Bluetooth Speaker",
+    "status": "Delivered",
+    "ordered_days_ago": 68,
+    "delivery_days": 5,
+    "amount": 45.50
+  }
+}
