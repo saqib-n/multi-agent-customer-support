@@ -25,6 +25,12 @@
 
 <br>
 
+<h2>See it in action</h2>
+
+<p align="center"><img src="demo/demo.gif" alt="Terminal recording of Multi-Agent Customer Support running on Google Gemini" width="100%"></p>
+
+<p align="center"><sub>Recorded from a real run on Google Gemini (<code>gemini-3.1-flash-lite</code>) on 12 November 2026. Nothing is edited or scripted. Only the waiting time while the model thinks is shortened. <a href="demo/demo.mp4">Download the MP4</a>.</sub></p>
+
 <h2>The problem</h2>
 
 <p>One big support prompt handles simple questions fine and falls apart on refunds. It invents a policy, approves something it shouldn't, and never tells you it wasn't sure.</p>
@@ -114,19 +120,73 @@ python app.py
 
 <pre>
 multi-agent-customer-support/
-  .env.example          # copy to .env and add your key
-  app.py                # chat in the terminal
-  case_study.md         # longer write-up of the design
+  .env.example                                           # copy to .env and add your key
+  app.py                                                 # chat in the terminal
+  case_study.md                                          # longer write-up of the design
   README.md
-  requirements.txt      # dependencies
+  requirements.txt                                       # dependencies
+  .git/
+    COMMIT_EDITMSG
+    config
+    description
+    HEAD
+    hooks/applypatch-msg.sample
+    hooks/commit-msg.sample
+    hooks/fsmonitor-watchman.sample
+    hooks/post-update.sample
+    hooks/pre-applypatch.sample
+    hooks/pre-commit.sample
+    hooks/pre-merge-commit.sample
+    hooks/pre-push.sample
+    hooks/pre-rebase.sample
+    hooks/pre-receive.sample
+    hooks/prepare-commit-msg.sample
+    hooks/push-to-checkout.sample
+    hooks/sendemail-validate.sample
+    hooks/update.sample
+    index
+    info/exclude
+    logs/HEAD
+    logs/refs/heads/main
+    logs/refs/remotes/origin/main
+    objects/01/e2803123fc1d58f93cc5b02dc85dc98ad9879e
+    objects/0d/19a37d674a332b9dba9f34ec54f3144a81a21f
+    objects/45/7c8ce56f517ebdad911e6286fa135a76151f61
+    objects/47/feccf9261e65a184bdce3629d8d950d38685f2
+    objects/63/d71b904df61169c3e320c87c6aac92e2460ab7
+    objects/65/36a1ae1a6b7092204987ec5dcaf4591c90e15f
+    objects/6f/b2ba3a772da32949e2b0851c5e24a51af803ac
+    objects/78/998da0758f803a8b7d9b492206632524003f81
+    objects/7a/3a4f0ab20b8170a7b714479283340f5fe09e10
+    objects/88/eb69f5f363519d2259efbf4d3f8f6aa9eea56a
+    objects/92/0de625bd9c58c8ca4912df832e620770a68a00
+    objects/a2/2992dd5a497d81f2c4d52d29bebebfab28c81d
+    objects/a2/667477f906e25e4d46862b73a0cf1d10163a78
+    objects/a9/80b77401b076f1b89af7052c4995e63b3b56f0
+    objects/b2/53cf884c281ae560ff955b113152002efbe7f1
+    objects/bb/1d0d20270c6b562a687dd6c5e21f3c4d7ba090
+    objects/c5/4aeb32cf364cf433dfb7c8ce58583bc231b3a2
+    objects/c5/97c23fa30e7a1e2dfac8278bb520f879e325c9
+    objects/cf/3936dd83f71ce6b12189d251f6b56aa0334be8
+    objects/d3/095186de9672ac3e591fe3047e88f3a675742c
+    objects/d9/d96ca41d7eca2cf4ba8d0762daa2a473441437
+    objects/e5/6d0464232e3f00c54b6317bcda0a87126ef783
+    objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+    objects/e7/971bfe341cb3b4763a5baae5da49675f9a3df5
+    objects/ef/a866e10882b97fdead97719566e2fb26ed52a8
+    refs/heads/main
+    refs/remotes/origin/main
   agents/
-    llm.py              # picks the model from LLM_MODEL
-    support_graph.py    # router, specialists and memory
-    tools.py            # order lookup, refund rules, FAQ search, tickets
+    llm.py                                               # picks the model from LLM_MODEL
+    support_graph.py                                     # router, specialists and memory
+    tools.py                                             # order lookup, refund rules, FAQ search, tickets
   data/
-    faq.json            # knowledge base
-    orders.json         # demo orders
-  tests/                # pytest suite, runs without any API key
+    faq.json                                             # knowledge base
+    orders.json                                          # demo orders
+  demo/
+    demo.gif
+    demo.mp4
+  tests/                                                 # pytest suite, runs without any API key
 </pre>
 
 <h2>Built with</h2>
