@@ -27,9 +27,11 @@
 
 <h2>See it in action</h2>
 
-<p align="center"><img src="demo/demo.gif" alt="Terminal recording of Multi-Agent Customer Support running on Google Gemini" width="100%"></p>
+<p align="center"><img src="demo/demo.gif" alt="Support desk: customer chat on the left, the agent graph lighting up the router and the chosen specialist, and a log of every tool call" width="100%"></p>
 
-<p align="center"><sub>Recorded from a real run on Google Gemini (<code>gemini-3.1-flash-lite</code>) on 12 November 2026. Nothing is edited or scripted. Only the waiting time while the model thinks is shortened. <a href="demo/demo.mp4">Download the MP4</a>.</sub></p>
+<p align="center"><sub>Recorded in the built-in support desk from a real run on Google Gemini (<code>gemini-3.1-flash-lite</code>) on 14 November 2026. Nothing is scripted. Only the time spent waiting for the model is fast-forwarded, and the real response times are shown on screen. <a href="demo/demo.mp4">Download the MP4</a>.</sub></p>
+
+<p>Run <code>python app.py</code> and it opens a support desk with the customer chat, a live agent graph that lights up the specialist the router picked, and a log of every tool call. It is the same agent code as the command line version, with a screen on top.</p>
 
 <h2>The problem</h2>
 
@@ -83,7 +85,7 @@
 <p>The refund answer below is from a real run on Google Gemini:</p>
 
 <pre>
-$ python app.py
+$ python chat_cli.py
 You: Where is my order ORD-1001?
 Agent [order_status]: Order ORD-1001 (Wireless Earbuds Pro) is currently Shipped.
 Estimated delivery: &lt;four days from today&gt;.
@@ -101,7 +103,8 @@ Agent [refund]: Order ORD-1004 was placed 68 days ago, which is outside our
 pip install -r requirements.txt
 cp .env.example .env        # on Windows: copy .env.example .env
 # open .env and paste your API key
-python app.py
+python app.py               # opens the support desk at http://localhost:8000
+python chat_cli.py          # the same chat in the terminal
 </pre>
 
 <p>Try an order question, a refund for ORD-1004, a policy question, and "I want to speak to a manager".</p>
@@ -121,7 +124,8 @@ python app.py
 <pre>
 multi-agent-customer-support/
   .env.example          # copy to .env and add your key
-  app.py                # chat in the terminal
+  app.py                # browser support desk with the live agent graph
+  chat_cli.py           # chat in the terminal
   case_study.md         # longer write-up of the design
   README.md
   requirements.txt      # dependencies
@@ -132,8 +136,10 @@ multi-agent-customer-support/
   data/
     faq.json            # knowledge base
     orders.json         # demo orders
-  demo/                 # recording of a live run (GIF and MP4)
+  demo/                 # recording of a live run (GIF, MP4 and a screenshot)
   tests/                # pytest suite, runs without any API key
+  web/
+    index.html          # the support desk, one file, no build step
 </pre>
 
 <h2>Built with</h2>
@@ -147,7 +153,7 @@ pip install -r requirements-dev.txt
 pytest
 </pre>
 
-<p>Four tests cover all four outcomes of the refund rule, the FAQ search, the routing, and memory carrying an order ID across messages. None of the tests call a model or need an API key, so they run on GitHub Actions on every push. The badge at the top shows the latest result.</p>
+<p>Five tests cover all four outcomes of the refund rule, the FAQ search, the routing, and memory carrying an order ID across messages, plus the browser screen and its API. None of the tests call a model or need an API key, so they run on GitHub Actions on every push. The badge at the top shows the latest result.</p>
 
 <h2>Roadmap</h2>
 
